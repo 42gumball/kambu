@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="pt-AO">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kambu — Compra lá fora, paga em kwanzas</title>
+  <meta name="description" content="Carrinhos de revendedores para Shein, Zara, AliExpress e mais. Vê o câmbio em kwanzas, quando o carrinho fecha e acompanha a encomenda até levantares." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#FBFAF6" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0C1412" media="(prefers-color-scheme: dark)" />
+  <script>
+    // Apply saved theme before paint to avoid a flash.
+    try { var t = localStorage.getItem("kambu-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Kambu — Compra lá fora, paga em kwanzas" />
+  <meta property="og:description" content="Câmbio claro, data de fecho e estado da encomenda num só lugar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-swap" viewBox="0 0 24 24"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+      <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M3 12h.01"/><path d="M3 18h.01"/><path d="M3 6h.01"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M8 6h13"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98"/><path d="m15.41 6.51-6.82 3.98"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3.8v16.4a1 1 0 0 0 1.5.86l13.6-8.2a1 1 0 0 0 0-1.72L7.5 2.94A1 1 0 0 0 6 3.8z"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="/" class="brand" aria-label="Kambu — início">
+        <span class="brand__mark"><svg class="icon"><use href="#i-bag"/></svg></span>
+        <span class="brand__name">kambu</span>
+      </a>
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#cambio">Câmbio</a>
+        <a href="#acompanhar">Acompanhar</a>
+        <a href="#revendedores">Para revendedores</a>
+      </nav>
+      <div class="nav__actions">
+        <span class="soon-pill"><span class="dot"></span>Em breve</span>
+        <button class="theme-toggle" type="button" aria-label="Mudar tema">
+          <svg class="icon icon--sm theme-toggle__moon"><use href="#i-moon"/></svg>
+          <svg class="icon icon--sm theme-toggle__sun"><use href="#i-sun"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="badge"><svg class="icon icon--sm"><use href="#i-swap"/></svg>Câmbio visível antes de pagares</span>
+          <h1>Compra na Shein, Zara e AliExpress. <span class="hl">Paga em kwanzas.</span></h1>
+          <p class="lead">Os revendedores publicam os seus carrinhos no Kambu. Tu vês o câmbio, sabes quando o carrinho fecha e acompanhas a encomenda até ao dia em que a levantas. Tudo num sítio, em vez de espalhado por grupos de WhatsApp.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="mailto:ola@kambu.ao?subject=Quero%20acesso%20antecipado%20ao%20Kambu">Quero acesso antecipado<svg class="icon icon--sm"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost" href="#revendedores">Sou revendedor</a>
+          </div>
+          <div class="stores" aria-label="A app estará disponível em breve">
+            <span class="store"><svg class="icon"><use href="#i-phone"/></svg><span><small>Em breve na</small><strong>App Store</strong></span></span>
+            <span class="store"><svg class="icon"><use href="#i-play"/></svg><span><small>Em breve no</small><strong>Google Play</strong></span></span>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <article class="cart-card" aria-label="Exemplo de carrinho">
+            <header class="cart-card__head">
+              <span class="store-logo store-logo--shein">S</span>
+              <div>
+                <strong>Carrinho Shein · Dezembro</strong>
+                <span class="muted">por Loja da Nayara <span class="rating"><svg class="icon icon--xs"><use href="#i-star"/></svg>4,9</span></span>
+              </div>
+              <span class="status status--open">Aberto</span>
+            </header>
+            <div class="cart-card__rate">
+              <span class="muted">Câmbio do carrinho</span>
+              <strong>1 USD = <span data-hero-rate>1.050</span> Kz</strong>
+              <span class="rate-note"><svg class="icon icon--xs"><use href="#i-lock"/></svg>Fixo ao fechar</span>
+            </div>
+            <div class="countdown" aria-live="polite">
+              <span class="muted"><svg class="icon icon--xs"><use href="#i-clock"/></svg>Fecha em</span>
+              <div class="countdown__units">
+                <span><b data-cd="d">02</b><small>dias</small></span>
+                <span><b data-cd="h">14</b><small>horas</small></span>
+                <span><b data-cd="m">36</b><small>min</small></span>
+                <span><b data-cd="s">08</b><small>seg</small></span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress__label"><span>34 de 50 peças</span><span class="muted">mín. 30 ✓</span></div>
+              <div class="progress__bar"><span style="width:68%"></span></div>
+            </div>
+            <div class="cart-card__meta">
+              <span><svg class="icon icon--xs"><use href="#i-truck"/></svg>Chega ~ 3 semanas</span>
+              <span><svg class="icon icon--xs"><use href="#i-pin"/></svg>Levantamento: Talatona</span>
+            </div>
+            <button class="btn btn--primary btn--block" type="button" disabled>Entrar no carrinho</button>
+            <p class="demo-note">Exemplo ilustrativo</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open carts -->
+    <section class="section section--subtle" id="carrinhos">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Carrinhos abertos</span>
+          <h2>Escolhe a loja, compara o câmbio.</h2>
+          <p class="section__lead">Cada carrinho mostra o câmbio do revendedor, a data de fecho e quando deve chegar. Sem perguntar no grupo.</p>
+        </div>
+        <div class="chips" role="tablist" aria-label="Filtrar por loja">
+          <button class="chip-btn" role="tab" aria-selected="true" data-filter="all">Todas</button>
+          <button class="chip-btn" role="tab" aria-selected="false" data-filter="shein">Shein</button>
+          <button class="chip-btn" role="tab" aria-selected="false" data-filter="zara">Zara</button>
+          <button class="chip-btn" role="tab" aria-selected="false" data-filter="aliexpress">AliExpress</button>
+          <button class="chip-btn" role="tab" aria-selected="false" data-filter="amazon">Amazon</button>
+        </div>
+        <ul class="carts" data-carts></ul>
+        <p class="demo-note demo-note--center">Carrinhos e revendedores fictícios, só para exemplo.</p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Como funciona</span>
+          <h2>Do link à tua mão, em quatro passos.</h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num">1</span>
+            <svg class="icon step__icon"><use href="#i-bag"/></svg>
+            <h3>Escolhe um carrinho</h3>
+            <p>Filtra por loja, câmbio e data de fecho. Vê a avaliação de cada revendedor.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">2</span>
+            <svg class="icon step__icon"><use href="#i-link"/></svg>
+            <h3>Adiciona os teus links</h3>
+            <p>Cola o link da peça, escolhe tamanho e cor. O preço aparece logo em kwanzas.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">3</span>
+            <svg class="icon step__icon"><use href="#i-wallet"/></svg>
+            <h3>Paga em kwanzas</h3>
+            <p>Multicaixa Express ou transferência. Envias o comprovativo e o revendedor confirma.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">4</span>
+            <svg class="icon step__icon"><use href="#i-truck"/></svg>
+            <h3>Acompanha até levantar</h3>
+            <p>Recebes um aviso em cada etapa, da encomenda na loja até estar pronta em Luanda.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="section section--subtle" id="cambio">
+      <div class="container calc">
+        <div class="calc__copy">
+          <span class="eyebrow">Câmbio</span>
+          <h2>Sabe quanto pagas antes de entrares.</h2>
+          <p class="section__lead">O câmbio de cada carrinho fica à vista, junto à taxa de envio. Quando o carrinho fecha, o câmbio fica fixo: não muda depois de pagares.</p>
+          <ul class="ticks">
+            <li><svg class="icon icon--sm"><use href="#i-check"/></svg>Câmbio do revendedor ao lado de uma taxa de referência</li>
+            <li><svg class="icon icon--sm"><use href="#i-check"/></svg>Taxa de envio por peso, sem surpresas</li>
+            <li><svg class="icon icon--sm"><use href="#i-check"/></svg>Histórico do câmbio de cada carrinho</li>
+          </ul>
+        </div>
+        <form class="calc__card" data-calc onsubmit="return false">
+          <div class="field">
+            <label for="calc-price">Preço na loja</label>
+            <div class="field__group">
+              <input id="calc-price" type="number" inputmode="decimal" min="0" step="0.01" value="25" />
+              <select id="calc-currency" aria-label="Moeda">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="calc-cart">Carrinho</label>
+            <select id="calc-cart"></select>
+          </div>
+          <div class="field">
+            <label for="calc-weight">Peso estimado <span class="muted" data-fee-label></span></label>
+            <div class="field__group">
+              <input id="calc-weight" type="number" inputmode="decimal" min="0" step="0.1" value="0.5" />
+              <span class="field__unit">kg</span>
+            </div>
+          </div>
+          <dl class="calc__result">
+            <div><dt>Peça</dt><dd data-out="item">—</dd></div>
+            <div><dt>Envio</dt><dd data-out="ship">—</dd></div>
+            <div class="calc__total"><dt>Total</dt><dd data-out="total">—</dd></div>
+          </dl>
+          <p class="calc__compare" data-out="compare"></p>
+          <p class="demo-note">Valores de exemplo. Não é uma cotação real.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Tracking -->
+    <section class="section" id="acompanhar">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Acompanhar</span>
+          <h2>Sabes sempre onde está a tua encomenda.</h2>
+          <p class="section__lead">O revendedor atualiza o estado do carrinho uma vez e todos os compradores são avisados, com fotos quando faz sentido.</p>
+        </div>
+        <div class="track">
+          <ol class="timeline" data-timeline></ol>
+          <div class="track__detail" aria-live="polite">
+            <span class="status" data-track-status></span>
+            <h3 data-track-title></h3>
+            <p data-track-text></p>
+            <span class="muted" data-track-when></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="section section--subtle" id="confianca">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Confiança</span>
+          <h2>Compras com quem tem historial.</h2>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <svg class="icon feature__icon"><use href="#i-shield"/></svg>
+            <h3>Revendedores verificados</h3>
+            <p>Identidade confirmada e historial de carrinhos entregues, à vista de todos.</p>
+          </article>
+          <article class="feature">
+            <svg class="icon feature__icon"><use href="#i-star"/></svg>
+            <h3>Avaliações reais</h3>
+            <p>Só quem recebeu a encomenda pode avaliar. Prazos e atendimento contam.</p>
+          </article>
+          <article class="feature">
+            <svg class="icon feature__icon"><use href="#i-lock"/></svg>
+            <h3>Câmbio fixo ao fechar</h3>
+            <p>O valor que vês quando o carrinho fecha é o valor que pagas. Ponto.</p>
+          </article>
+          <article class="feature">
+            <svg class="icon feature__icon"><use href="#i-bell"/></svg>
+            <h3>Avisos em cada etapa</h3>
+            <p>Notificação quando o carrinho fecha, sai da loja, chega a Luanda e está pronto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Importers -->
+    <section class="section" id="revendedores">
+      <div class="container sellers">
+        <div class="sellers__copy">
+          <span class="eyebrow eyebrow--light">Para revendedores</span>
+          <h2>Menos mensagens. Mais carrinhos fechados.</h2>
+          <p>Publica o teu carrinho em minutos, partilha o link no WhatsApp e deixa o Kambu tratar das listas, dos pagamentos e das perguntas “já chegou?”.</p>
+          <a class="btn btn--accent" href="mailto:ola@kambu.ao?subject=Quero%20vender%20no%20Kambu">Quero vender no Kambu<svg class="icon icon--sm"><use href="#i-arrow"/></svg></a>
+        </div>
+        <ul class="sellers__list">
+          <li><svg class="icon"><use href="#i-list"/></svg><div><strong>Lista de peças automática</strong><span>Links, tamanhos e quantidades de cada comprador, prontos para exportar.</span></div></li>
+          <li><svg class="icon"><use href="#i-wallet"/></svg><div><strong>Quem já pagou</strong><span>Comprovativos num só lugar. Confirmas com um toque.</span></div></li>
+          <li><svg class="icon"><use href="#i-truck"/></svg><div><strong>Um estado para todos</strong><span>Atualizas uma vez e todos os compradores são avisados.</span></div></li>
+          <li><svg class="icon"><use href="#i-share"/></svg><div><strong>Link para partilhar</strong><span>Cada carrinho tem uma página própria para o teu grupo ou Instagram.</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--subtle" id="faq">
+      <div class="container faq">
+        <div class="section__head">
+          <span class="eyebrow">Perguntas</span>
+          <h2>Perguntas frequentes</h2>
+        </div>
+        <div class="faq__list">
+          <details>
+            <summary>E se o câmbio mudar depois de eu pagar?</summary>
+            <p>Não muda. O câmbio fica fixo no momento em que o carrinho fecha, e é esse valor que aparece no teu resumo de pagamento.</p>
+          </details>
+          <details>
+            <summary>O Kambu é que vende as peças?</summary>
+            <p>Não. O Kambu liga compradores a revendedores independentes. Cada revendedor define o seu câmbio, taxas e local de levantamento, e o Kambu torna tudo transparente.</p>
+          </details>
+          <details>
+            <summary>E se a encomenda atrasar?</summary>
+            <p>O estado do carrinho mostra onde está a encomenda, incluindo a alfândega. Se o prazo passar, és avisado e podes falar diretamente com o revendedor.</p>
+          </details>
+          <details>
+            <summary>E se uma peça vier errada ou esgotada?</summary>
+            <p>O revendedor marca a peça como esgotada ou com problema e combina contigo o reembolso ou a troca. Tudo fica registado no carrinho.</p>
+          </details>
+          <details>
+            <summary>Onde levanto as minhas compras?</summary>
+            <p>Cada carrinho indica os pontos de levantamento (por exemplo Talatona, Kilamba ou Viana) e se há entrega ao domicílio.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- App -->
+    <section class="section" id="app">
+      <div class="container app-cta">
+        <h2>Primeiro na web. Depois no teu telemóvel.</h2>
+        <p class="section__lead">O Kambu começa como aplicação web. As apps para Android e iOS vêm a seguir.</p>
+        <div class="stores stores--center">
+          <span class="store"><svg class="icon"><use href="#i-phone"/></svg><span><small>Em breve na</small><strong>App Store</strong></span></span>
+          <span class="store"><svg class="icon"><use href="#i-play"/></svg><span><small>Em breve no</small><strong>Google Play</strong></span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="/" class="brand" aria-label="Kambu — início">
+        <span class="brand__mark"><svg class="icon"><use href="#i-bag"/></svg></span>
+        <span class="brand__name">kambu</span>
+      </a>
+      <p class="muted">Compra lá fora, paga em kwanzas. Feito em Luanda.</p>
+      <p class="muted">© <span data-year>2026</span> Kambu</p>
+    </div>
+  </footer>
+
+  <script src="/main.js" defer></script>
+</body>
+</html>
